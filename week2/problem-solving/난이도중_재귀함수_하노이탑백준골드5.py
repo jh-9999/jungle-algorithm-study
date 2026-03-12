@@ -9,3 +9,22 @@
 # 이 작업을 수행하는데 필요한 이동 순서를 출력하는 프로그램을 작성하라. 단, 이동 횟수는 최소가 되어야 한다.
 
 # 아래 그림은 원판이 5개인 경우의 예시이다.
+def hanoi(n, start, end, bypass):
+    # 원판이 1개면 바로 목적지로 옮기고 종료
+    if n == 1:
+        print(start, end)
+        return
+
+    # 1단계: n-1개를 경유지로 옮김
+    hanoi(n - 1, start, bypass, end)
+    
+    # 2단계: 가장 큰 원판을 목적지로 옮김
+    print(start, end)
+    
+    # 3단계: 경유지에 있던 n-1개를 목적지로 옮김
+    hanoi(n - 1, bypass, end, start)
+
+# 실행 예시 (원판 3개를 1번 기둥에서 3번 기둥으로, 2번은 경유)
+n = 3
+print(2**n - 1) # 총 이동 횟수 먼저 출력
+hanoi(n, 1, 3, 2)
