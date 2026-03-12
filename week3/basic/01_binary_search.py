@@ -37,6 +37,18 @@ def binary_search(arr, target):
     right = len(arr) - 1
     
     # TODO: left가 right보다 작거나 같을 때까지 반복
+    while left <= right: 
+        mid = (left + right) // 2
+        
+        if arr[mid] == target:
+            return mid
+
+        if target > arr[mid]:
+            left = mid + 1
+        
+        elif target < arr[mid]:
+            right = mid - 1
+        
     ## 중간 인덱스 계산
     ## arr[mid]와 target 비교
     ## 같으면 mid 반환
