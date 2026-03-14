@@ -1,22 +1,27 @@
 # 분할정복 - 색종이 만들기 (백준 실버2)
 # 문제 링크: https://www.acmicpc.net/problem/2630
 
-  
-def solution(x, y, n):
-  white = 0
-  blue = 0
-  n = 8
-  arr = []
-  x = 0
-  y = 0
+#  0 0 8 arr
 
-  for i in range(n):
-    for j in range(n):
-      if arr[i][j] != 1:
-        solution(x,y,n // 2)
-        solution(x, y + n//2, n // 2)
-        solution(x + n//2,y,n // 2)
-        solution(x + n//2,y + n//2, n // 2)
-      blue += 1
-      return
+white = 0
+blue = 0
+
+def solution(x, y, n, arr):
+
+  color = arr[x][y]
+
+  for i in range(x, x + n):
+    for j in range(y, y + n):
+      if arr[i][j] != color:
+
+        new_n = n // 2
+        solution(x,y,new_n,arr)
+        solution(x, y + new_n, new_n, arr)
+        solution(x + new_n, y, new_n, arr)
+        solution(x + new_n, y + new_n, new_n,arr)
+        return
   
+  if color == 0:
+    white += 1
+  else:
+    blue += 1
