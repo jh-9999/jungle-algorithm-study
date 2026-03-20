@@ -24,6 +24,7 @@
 시작: 0
 BFS: [0, 1, 2, 3]
 
+
 힌트:
 - Week2의 큐 사용
 - 방문 체크 필요
@@ -46,12 +47,23 @@ def bfs(graph, start):
     visited = []
     
     # TODO: 큐 생성 및 시작 정점 추가
+    queue = deque([start])
     ## 방문한 정점 집합
+    visited.append(start)
     pass
 
     # TODO: 큐가 빌 때까지 반복
+    while queue:
+        current = queue.popleft()
     ## 큐에서 정점 꺼내기
+
     ## 인접한 정점들 확인
+        for nei in graph[current]:
+            if nei not in visited:
+                visited.append(nei)
+                queue.append(nei)
+
+
     ## 방문하지 않은 정점이면 큐에 추가
     pass
     
