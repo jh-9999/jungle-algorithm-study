@@ -1,35 +1,35 @@
 # 그래프, DFS, BFS - 점프왕 쩰리 (백준 실버4)
 # 문제 링크: https://www.acmicpc.net/problem/16173
 
-from collections import deque
+def solution():
+  n = int(input())
 
-n = 3
-board =[]
+  board = [list(map(int, input().split())) for _ in range(n)]
 
-visited = [[False] * n for _ in range(n)]
-queue = deque([0,0])
-visited[0][0] = True
+  visited = [[False] * n for _ in range(n)]
 
-while queue:
-  x, y = queue.popleft()
+  def dfs(x,y):
+    if x >= n or y >= n:
+      return
+    
+    if visited[x][y]:
+      return
+    
+    visited[x][y] = True
 
-  if board[x][y] == -1:
-    print("HaruHaru")
-    break
+    if board[x][y] == -1:
+      return
+
+    step = board[x][y]
+
+    dfs(x + step,y)
+    dfs(x, y + step)
   
-  jump = board[x][y]
+  dfs(0,0)
+  
+  if visited[n-1][n-1]:
+    print("HaruHaru")
+  else:
+    print("Hing")
 
-  nx = x + jump
-  ny = y
-
-  if nx < n and not visited[nx][ny]:
-    visited[nx][ny] = True
-    queue.append((nx, ny))
-
-  nx = x
-  ny = y + jump
-  if ny < n and not visited[nx][ny]:
-    visited[nx][ny] = True
-    queue.append((nx, ny))
-else:
-  print("Hing")
+solution()

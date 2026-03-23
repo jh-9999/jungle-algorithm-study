@@ -52,10 +52,9 @@ def dfs(graph, start, visited=None):
     pass
     
     # TODO: 인접한 정점들에 대해 재귀
-    for neighbor in graph[start]:
-        if neighbor not in visited:
-            dfs(graph,neighbor,visited)
-
+    for nei in graph[start]:
+        if nei not in visited:
+            dfs(graph, nei, visited)
     pass
     
     return visited

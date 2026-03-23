@@ -3,12 +3,20 @@
 
 # 모든 나라를 연결하면서 간선 수를 최소로 하는 구조, 신장 트리
 
-T = 5
+import sys
 
-for _ in range(T):
-  N, M = map(int, input().split())
+def solution():
+    
+    t = int(sys.stdin.readline())
+    
+    
+    for _ in range(t):
+        n, m = map(int, sys.stdin.readline().split())
+        
+        for _ in range(m):
+            sys.stdin.readline()
+            
+        print(n - 1)
 
-  for _ in range(M):
-    input()
-  
-  print(N - 1)
+if __name__ == "__main__":
+    solution()

@@ -45,11 +45,11 @@ def create_graph(vertices, edges, directed=False):
     pass
     
     # TODO: 간선 추가
-    for v,u in edges:
-        graph[v].append(u)
-
+    for start, end in edges:
+        graph[start].append(end)
+        
         if not directed:
-            graph[u].append(v)
+            graph[end].append(start)
     pass
     
     return graph

@@ -53,11 +53,11 @@ def preorder(root):
     pass
     
     # TODO: 왼쪽 서브트리 순회
-    preorder(root.left)
+    result.extend(preorder(root.left))
     pass
     
     # TODO: 오른쪽 서브트리 순회
-    preorder(root.right)
+    result.extend(preorder(root.right))
     pass
     
     return result
@@ -72,7 +72,7 @@ def inorder(root):
     pass
     
     # TODO: 왼쪽 서브트리 순회
-    inorder(root.left)
+    result.exted(inorder(root.left))
     pass
     
     # TODO: 루트 값 추가
@@ -80,7 +80,7 @@ def inorder(root):
     pass
     
     # TODO: 오른쪽 서브트리 순회
-    inorder(root.right)
+    result.extend(inorder(root.right))
     pass
     
     return result
@@ -95,11 +95,11 @@ def postorder(root):
     pass
     
     # TODO: 왼쪽 서브트리 순회
-    postorder(root.left)
+    result.extend(postorder(root.left))
     pass
     
     # TODO: 오른쪽 서브트리 순회
-    postorder(root.right)
+    result.extend(postorder(root.right))
     pass
     
     # TODO: 루트 값 추가

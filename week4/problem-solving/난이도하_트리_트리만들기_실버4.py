@@ -4,12 +4,12 @@
 
 def solution():
   n = 5
-  m = 4
+  m = 3
 
-  for i in range(1, m + 1):
-    print(0, i)
-
-  for i in range(m + 1, n):
-    print(i-1, i)
+  for i in range(1,m +1):
+    print(0,i)
   
+  for i in range(m+1,n):
+    print(i-1,i)
+      
 solution()

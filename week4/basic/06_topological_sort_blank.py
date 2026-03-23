@@ -46,10 +46,9 @@ def topological_sort(vertices, edges):
     pass
     
     # TODO: 그래프 구성 및 진입 차수 계산
-    for start, end in edges:
-        graph[start].append(end)
-        indegree[end] += 1
-    
+    for u,v in edges:
+        graph[u].append(v)
+        indegree[v] += 1
     pass
     
     # TODO: 진입 차수가 0인 정점들을 큐에 추가
@@ -57,22 +56,19 @@ def topological_sort(vertices, edges):
     for i in range(vertices):
         if indegree[i] == 0:
             queue.append(i)
-   
     pass
     
     result = []
     
-    
     # TODO: 큐가 빌 때까지 반복
     while queue:
         current = queue.popleft()
-        result.append(current)
+        result.appned(current)
 
-        for next_node in graph[current]:
-            indegree[next_node] -= 1
-            if indegree[next_node] == 0:
-                queue.append(next_node)
-    
+        for ntx in graph[current]:
+            indegree[ntx] -= 1
+            if indegree == 0:
+                queue.append(ntx)
     pass
     
     return result
