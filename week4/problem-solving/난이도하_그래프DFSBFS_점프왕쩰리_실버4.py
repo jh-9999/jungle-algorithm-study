@@ -1,6 +1,11 @@
 # 그래프, DFS, BFS - 점프왕 쩰리 (백준 실버4)
 # 문제 링크: https://www.acmicpc.net/problem/16173
 
+
+
+from collections import deque
+
+
 def solution():
   n = int(input())
 
@@ -8,28 +13,30 @@ def solution():
 
   visited = [[False] * n for _ in range(n)]
 
-  def dfs(x,y):
-    if x >= n or y >= n:
-      return
-    
-    if visited[x][y]:
-      return
-    
+  x = 0
+  y = 0
+
+  queue = deque()
+  queue.append((x,y))
+
+  while queue:
+    x, y = queue.popleft()
+
+    if x >= n or y >= n: continue
+    if visited[x][y]: continue
+
+
+    move = board[x][y]
     visited[x][y] = True
-
-    if board[x][y] == -1:
-      return
-
-    step = board[x][y]
-
-    dfs(x + step,y)
-    dfs(x, y + step)
-  
-  dfs(0,0)
+    if move == -1: break
+    queue.append((x+move,y))
+    queue.append((x,y+move))
   
   if visited[n-1][n-1]:
-    print("HaruHaru")
+    return print("HaruHaru")
   else:
     print("Hing")
+    
+
 
 solution()
