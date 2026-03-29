@@ -2,9 +2,10 @@
 # 문제 링크: https://www.acmicpc.net/problem/9084
 
 
+
+#질문 사항 1 왜 초기 값은 1로 해도 나머지 값이 돌아가는지.
+
 import sys
-
-
 
 def solution():
 
@@ -20,9 +21,14 @@ def solution():
     
     M = int(input().strip())
 
-    result = 0
+    arr = [0] * (M + 2)
 
-    arr = [0] * 10000
+    arr[0] = 1
 
     for coin in coins:
-      
+      for i in range(coin, M+1):
+        arr[i] = arr[i] + arr[i - coin]
+    
+    print(arr[M])
+    
+
